@@ -4,10 +4,18 @@ const conn = require("../db")
 
 router.get("/categories", (req, res, next) => {
   const sql = "SELECT * FROM categories"
-  conn.query(sql, (err, results, fields) => {
-    res.json(results)
 
-    results.filter()
+  let mainData = {}
+
+  conn.query(sql, (err, results, fields) => {
+    mainData.cats = results.filter(obj => obj.parent_id == null)
+
+    mainData.cats.map(cat => {
+      let subCats = results.filter(obj => obj.parent_id === cat.id)
+      cat.subCats = subCats
+    })
+
+    res.json(mainData)
   })
 })
 
