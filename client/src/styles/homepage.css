@@ -1,0 +1,11 @@
+.catsWrapper {
+  border: 1px solid black;
+  width: 800px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.catsBox {
+  border: 1px solid black;
+  text-align: center;
+}

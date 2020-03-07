@@ -1,13 +1,15 @@
 import React from "react"
-import { useExample } from "../hooks"
+import { Route } from "react-router-dom"
+import Homepage from "./homepage"
+import SubCat from "./subCat"
+import Listing from "./listing"
 
 export default props => {
-  const { foo, get } = useExample()
-
   return (
     <div>
-      <h1>Hello World {foo}</h1>
-      <button onClick={e => get()}>GET</button>
+      <Route exact path="/" component={Homepage}></Route>
+      <Route path="/subCat/:slug" component={SubCat}></Route>
+      <Route path="/listing/:id" component={Listing}></Route>
     </div>
   )
 }
