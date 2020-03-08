@@ -22,13 +22,12 @@ router.get("/categories", (req, res, next) => {
 router.get("/subCat/:slug", (req, res, next) => {
   const slug = `${req.params.slug}`
   const sqlm = `
-  SELECT categories.name, listings.listing_name, listings.id
+  SELECT categories.name, listings.subCat_id, listings.listing_name, listings.id
   FROM listings
   LEFT JOIN categories ON listings.subCat_id = categories.id
   Where categories.slug = ?`
 
   conn.query(sqlm, [slug], (err, results, fields) => {
-    console.log(err)
     res.json(results)
   })
 })

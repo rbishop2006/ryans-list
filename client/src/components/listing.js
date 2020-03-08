@@ -1,8 +1,11 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { useListing } from "../hooks"
 import "../styles/listing.css"
 export default props => {
-  const { listing } = useListing()
+  const { listing, fetchListing } = useListing()
+  useEffect(() => {
+    fetchListing(props.match.params.id)
+  }, [props.match.params])
   return (
     <div>
       {listing.map(listing => (

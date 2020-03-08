@@ -21,7 +21,7 @@ function getAllCats() {
   return dispatch => {
     axios.get("/api/categories").then(resp => {
       const data = resp.data.cats
-      console.log(data)
+
       dispatch({
         type: GET_ALLCATS,
         payload: data
