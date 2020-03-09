@@ -1,0 +1,47 @@
+.subCatsHeaderWrapper {
+  width: 1000px;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+}
+.subCatWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  width: 1000px;
+  margin: auto;
+}
+.subCatInfo {
+}
+.subCatTextInfo {
+  color: blue;
+  margin: 0;
+  padding: 5px;
+}
+.subCatLinkInfo {
+  text-decoration: none;
+  cursor: pointer;
+}
+.subCatForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.subCatFormTitle {
+  font-style: italic;
+  color: darkgary;
+  outline: none;
+  cursor: pointer;
+}
+.subCatFormTextarea {
+  height: 60px;
+  font-style: italic;
+  color: darkgray;
+  outline: none;
+  cursor: pointer;
+}
+.subCatFormSubmit {
+  width: 60px;
+  align-self: center;
+  cursor: pointer;
+}
