@@ -7,22 +7,14 @@ export default props => {
   const { fetchListing } = useListing()
   const [title, setTitle] = useState("")
   const [desc, setDesc] = useState("")
-  const subCat = listings.length > 0 && listings[0].subCat_id
-
-  const form = {
-    title: title,
-    subCat_id: subCat,
-    desc: desc
-  }
 
   useEffect(() => {
     fetchListings(props.match.params.slug)
   }, [props.match.params])
 
-  console.log(form)
-
-  const handleSubmit = (title, subCat, desc) => {
-    sendListing(title, subCat, desc)
+  function handleSubmit(e) {
+    e.preventDefault()
+    sendListing(props.match.params.slug, title, desc)
   }
 
   return (
@@ -45,7 +37,7 @@ export default props => {
             </div>
           ))}
         </div>
-        <form className="subCatForm">
+        <form onSubmit={handleSubmit} className="subCatForm">
           <input
             className="subCatFormTitle"
             type="text"
@@ -59,9 +51,7 @@ export default props => {
             onChange={e => setDesc(e.target.value)}
             value={desc}
           ></textarea>
-          <button className="subCatFormSubmit" onSubmit={handleSubmit}>
-            Submit
-          </button>
+          <button className="subCatFormSubmit">Submit</button>
         </form>
       </div>
     </div>

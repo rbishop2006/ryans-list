@@ -12,6 +12,7 @@
   margin: auto;
 }
 .subCatInfo {
+  border-right: 1px solid darkgray;
 }
 .subCatTextInfo {
   color: blue;

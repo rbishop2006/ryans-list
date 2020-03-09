@@ -44,6 +44,10 @@
   margin: auto;
   text-align: center;
 }
+/* display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 1500px; */
 .leftSidebar {
   border-right: 1px solid darkgray;
   border-left: 1px solid darkgray;
@@ -57,7 +61,7 @@
 .catsWrapper {
   display: grid;
   grid-gap: 20px;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 .catsHeader {
   text-align: center;

@@ -34,12 +34,29 @@ router.get("/subCat/:slug", (req, res, next) => {
 
 router.get("/listing/:id", (req, res, next) => {
   const id = `${req.params.id}`
-  const sqlmn = `
+  const sqln = `
   SELECT listing_name, \`desc\`
   FROM listings
   WHERE listings.id = ?`
-  conn.query(sqlmn, [id], (err, results, fields) => {
+  conn.query(sqln, [id], (err, results, fields) => {
     res.json(results)
+  })
+})
+
+router.post("/subCat/:slug", (req, res, next) => {
+  console.log(req.body)
+  const slug = req.params.slug
+  const title = req.body.title
+  const desc = req.body.desc
+
+  const sqlo = "SELECT id FROM categories WHERE slug = ?"
+  const sqlp = `INSERT INTO listings(listing_name,subCat_id,\`desc\`)VALUES(?,?,?)`
+  conn.query(sqlo, [slug], (err, results, fields) => {
+    const subCat_id = results[0].id
+
+    conn.query(sqlp, [title, subCat_id, desc], (err2, results2, fields2) => {
+      res.json(results2)
+    })
   })
 })
 
