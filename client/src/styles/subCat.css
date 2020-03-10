@@ -33,35 +33,37 @@
   display: flex;
   flex-direction: column;
 }
-.subCatFormTitle {
-  outline: none;
-  cursor: pointer;
-  margin-bottom: 20px;
-  outline: none;
-}
-.subCatFormTitle:hover {
+input:hover {
   background-color: lightgray;
 }
-.subCatFormTitle::placeholder {
+input::placeholder {
   color: purple;
   font-style: italic;
 }
-.subCatLabels {
+input {
+  outline: none;
+}
+label {
   color: blue;
   margin-bottom: 3px;
   margin-top: 12px;
 }
-.subCatFormTextarea {
+.error {
+  color: red;
+}
+.errorBox {
+  border: 1px solid red;
+}
+textarea {
   height: 60px;
-
   outline: none;
   cursor: pointer;
 }
-.subCatFormTextarea::placeholder {
+textarea::placeholder {
   color: purple;
   font-style: italic;
 }
-.subCatFormTextarea:hover {
+textarea:hover {
   background-color: lightgray;
 }
 .subCatFormSubmit {
@@ -72,6 +74,7 @@
   background-color: lightgray;
   color: blue;
   border-radius: 3px;
+  outline: none;
 }
 .subCatHomepage {
   text-align: center;
