@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { useListings, useListing } from "../hooks"
+import { useListings } from "../hooks"
 import "../styles/subCat.css"
 import { Link } from "react-router-dom"
 import moment from "moment"
@@ -19,7 +19,7 @@ export default props => {
 
   useEffect(() => {
     fetchListings(props.match.params.slug)
-  }, [props.match.params])
+  }, [fetchListings, props.match.params])
 
   function handleSubmit(e) {
     e.preventDefault()

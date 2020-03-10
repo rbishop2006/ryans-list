@@ -11,8 +11,7 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case GET_LISTINGS:
       return { ...state, listings: action.payload }
-    case GET_LISTINGS:
-      return { ...state, form: action.payload }
+
     default:
       return state
   }

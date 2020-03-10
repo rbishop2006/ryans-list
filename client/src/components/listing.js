@@ -7,7 +7,7 @@ export default props => {
   const { listing, fetchListing } = useListing()
   useEffect(() => {
     fetchListing(props.match.params.id)
-  }, [props.match.params])
+  }, [fetchListing, props.match.params])
   return (
     <div>
       {listing.map(listing => (
@@ -19,7 +19,7 @@ export default props => {
             <h3 className="listingName">
               {listing.listing_name} -- {listing.price}
             </h3>
-            <img src="https://place-hold.it/400x300" />
+            <img src="https://place-hold.it/400x300" alt="placeholderPic" />
             <p className="listingDesc">{listing.desc}</p>
 
             <p className="listingLocationCity">
