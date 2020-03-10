@@ -22,24 +22,46 @@
 .subCatLinkInfo {
   text-decoration: none;
   cursor: pointer;
+  display: flex;
+}
+.subCatLocationTime {
+  margin: 0;
+  padding: 11px;
+  font-size: 0.75em;
 }
 .subCatForm {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
 }
 .subCatFormTitle {
-  font-style: italic;
-  color: darkgary;
   outline: none;
   cursor: pointer;
+  margin-bottom: 20px;
+  outline: none;
+}
+.subCatFormTitle:hover {
+  background-color: lightgray;
+}
+.subCatFormTitle::placeholder {
+  color: purple;
+  font-style: italic;
+}
+.subCatLabels {
+  color: blue;
+  margin-bottom: 3px;
 }
 .subCatFormTextarea {
   height: 60px;
-  font-style: italic;
-  color: darkgray;
+
   outline: none;
   cursor: pointer;
+}
+.subCatFormTextarea::placeholder {
+  color: purple;
+  font-style: italic;
+}
+.subCatFormTextarea:hover {
+  background-color: lightgray;
 }
 .subCatFormSubmit {
   width: 60px;
