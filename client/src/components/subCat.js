@@ -10,6 +10,7 @@ export default props => {
   const [desc, setDesc] = useState("")
   const [city, setCity] = useState("")
   const [location, setLocation] = useState("")
+  const [price, setPrice] = useState("")
 
   useEffect(() => {
     fetchListings(props.match.params.slug)
@@ -17,11 +18,12 @@ export default props => {
 
   function handleSubmit(e) {
     e.preventDefault()
-    sendListing(props.match.params.slug, title, desc, city, location)
+    sendListing(props.match.params.slug, title, desc, city, location, price)
     setTitle("")
     setDesc("")
     setCity("")
     setLocation("")
+    setPrice("")
   }
 
   return (
@@ -38,7 +40,9 @@ export default props => {
                 className="subCatLinkInfo"
                 to={{ pathname: "/listing/" + listing.id }}
               >
-                <h3 className="subCatTextInfo">{listing.listing_name}</h3>
+                <h3 className="subCatTextInfo">
+                  {listing.listing_name} -- {listing.price}
+                </h3>
                 <p className="subCatLocationTime">
                   ({listing.location}) {moment(listing.time_stamp).fromNow()}
                 </p>
@@ -80,6 +84,17 @@ export default props => {
             onChange={e => setLocation(e.target.value)}
             value={location}
           />
+          <label className="subCatLabels" htmlFor="price">
+            price
+          </label>
+          <input
+            className="subCatFormPrice"
+            id="price"
+            type="text"
+            placeholder="ex. Free or $5.00 per class"
+            onChange={e => setPrice(e.target.value)}
+            value={price}
+          ></input>
           <label className="subCatLabels" htmlFor="Description">
             description
           </label>

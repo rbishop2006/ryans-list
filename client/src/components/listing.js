@@ -16,7 +16,9 @@ export default props => {
             posted {moment(listing.time_stamp).fromNow()}
           </h5>
           <div className="listingLeftSide">
-            <h3 className="listingName">{listing.listing_name}</h3>
+            <h3 className="listingName">
+              {listing.listing_name} -- {listing.price}
+            </h3>
             <img src="https://place-hold.it/400x300" />
             <p className="listingDesc">{listing.desc}</p>
 

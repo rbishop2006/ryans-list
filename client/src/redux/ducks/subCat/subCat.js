@@ -30,10 +30,10 @@ function getListings(slug) {
   }
 }
 
-function postListing(slug, title, desc, city, location) {
+function postListing(slug, title, desc, city, location, price) {
   return dispatch => {
     axios
-      .post("/api/subCat/" + slug, { title, desc, city, location })
+      .post("/api/subCat/" + slug, { title, desc, city, location, price })
       .then(resp => {
         dispatch(getListings(slug))
       })
@@ -44,8 +44,8 @@ export function useListings() {
   const dispatch = useDispatch()
   const listings = useSelector(appState => appState.ListingState.listings)
   const fetchListings = slug => dispatch(getListings(slug))
-  const sendListing = (slug, title, desc, city, location) =>
-    dispatch(postListing(slug, title, desc, city, location))
+  const sendListing = (slug, title, desc, city, location, price) =>
+    dispatch(postListing(slug, title, desc, city, location, price))
 
   return { listings, fetchListings, sendListing }
 }

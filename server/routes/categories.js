@@ -22,7 +22,7 @@ router.get("/categories", (req, res, next) => {
 router.get("/subCat/:slug", (req, res, next) => {
   const slug = `${req.params.slug}`
   const sqlm = `
-  SELECT categories.name, listings.subCat_id, listings.listing_name, listings.id, listings.time_stamp, listings.location
+  SELECT categories.name, listings.subCat_id, listings.listing_name, listings.id, listings.time_stamp, listings.location, listings.price
   FROM listings
   LEFT JOIN categories ON listings.subCat_id = categories.id
   Where categories.slug = ?
@@ -37,7 +37,7 @@ router.get("/subCat/:slug", (req, res, next) => {
 router.get("/listing/:id", (req, res, next) => {
   const id = `${req.params.id}`
   const sqln = `
-  SELECT listing_name, \`desc\`, time_stamp, city, location
+  SELECT listing_name, \`desc\`, time_stamp, city, location, price
   FROM listings
   WHERE listings.id = ?`
   conn.query(sqln, [id], (err, results, fields) => {
@@ -51,15 +51,16 @@ router.post("/subCat/:slug", (req, res, next) => {
   const desc = req.body.desc
   const city = req.body.city
   const location = req.body.location
+  const price = req.body.price
 
   const sqlo = "SELECT id FROM categories WHERE slug = ?"
-  const sqlp = `INSERT INTO listings(listing_name,subCat_id,\`desc\`,city,location)VALUES(?,?,?,?,?)`
+  const sqlp = `INSERT INTO listings(listing_name,subCat_id,\`desc\`,city,location,price)VALUES(?,?,?,?,?,?)`
   conn.query(sqlo, [slug], (err, results, fields) => {
     const subCat_id = results[0].id
 
     conn.query(
       sqlp,
-      [title, subCat_id, desc, city, location],
+      [title, subCat_id, desc, city, location, price],
       (err2, results2, fields2) => {
         res.json(results2)
       }
