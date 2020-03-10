@@ -37,7 +37,7 @@ router.get("/subCat/:slug", (req, res, next) => {
 router.get("/listing/:id", (req, res, next) => {
   const id = `${req.params.id}`
   const sqln = `
-  SELECT listing_name, \`desc\`
+  SELECT listing_name, \`desc\`, time_stamp, city, location
   FROM listings
   WHERE listings.id = ?`
   conn.query(sqln, [id], (err, results, fields) => {

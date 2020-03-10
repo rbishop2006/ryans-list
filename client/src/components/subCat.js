@@ -48,7 +48,7 @@ export default props => {
         </div>
         <form onSubmit={handleSubmit} className="subCatForm">
           <label className="subCatLabels" htmlFor="title">
-            Title
+            title
           </label>
           <input
             className="subCatFormTitle"
@@ -59,7 +59,7 @@ export default props => {
             value={title}
           />
           <label className="subCatLabels" htmlFor="city">
-            City
+            city
           </label>
           <input
             className="subCatFormTitle"
@@ -70,7 +70,7 @@ export default props => {
             value={city}
           />
           <label className="subCatLabels" htmlFor="location">
-            Location
+            location
           </label>
           <input
             className="subCatFormTitle"
@@ -81,7 +81,7 @@ export default props => {
             value={location}
           />
           <label className="subCatLabels" htmlFor="Description">
-            Description
+            description
           </label>
           <textarea
             className="subCatFormTextarea"
@@ -92,6 +92,11 @@ export default props => {
           ></textarea>
           <button className="subCatFormSubmit">Submit</button>
         </form>
+      </div>
+      <div>
+        <Link className="subCatLinkHomepage" to="/">
+          <h3 className="subCatHomepage">back to homepage</h3>
+        </Link>
       </div>
     </div>
   )

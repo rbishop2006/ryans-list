@@ -24,6 +24,8 @@
   border-top: 1px solid darkgray;
   border-bottom: 1px solid darkgray;
   padding: 6px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 .nearbyCl {
   color: blue;
@@ -59,9 +61,10 @@
   background-color: lightgray;
 }
 .catsWrapper {
-  display: grid;
-  grid-gap: 20px;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  max-height: 1525px;
 }
 .catsHeader {
   text-align: center;
@@ -96,4 +99,5 @@
 }
 .catsBox {
   text-align: left;
+  padding: 10px;
 }

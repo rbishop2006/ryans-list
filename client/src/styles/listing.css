@@ -1,0 +1,27 @@
+.listingLeftSide {
+  display: grid;
+  justify-content: center;
+}
+.listingTimeStamp {
+  text-align: center;
+  color: purple;
+}
+.listingName {
+  color: blue;
+}
+.listingDesc {
+  font-size: 1.2em;
+  margin: 0;
+  margin-top: 20px;
+  font-weight: 500;
+}
+.listingLocationCity {
+  color: purple;
+}
+.listingLinkHomepage {
+  text-decoration: none;
+}
+.listingLinkHomepage:hover {
+  color: blue;
+  text-decoration: underline;
+}
